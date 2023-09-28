@@ -3,11 +3,10 @@ import unittest
 from Triangle import classify_triangle
 
 class TestTriangles(unittest.TestCase):
-  print("test started")
   
 def testset_1(self):
     self.assertEqual(classify_triangle(5,5,5),True,'Equilateral triangle')
-    print(classify_triangle(5,5,5),"Test Set 1 passed")
+    print("Test Set 1 passed")
       
 def testset_2(self):
     self.assertNotEqual(classify_triangle(4,5,4),False,'Isosceles')
