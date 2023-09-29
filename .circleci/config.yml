@@ -1,18 +1,21 @@
 version: 2.1
 
 orbs:
-  python: circleci/python@2.0.1
+   python: circleci/python@2.0.1
+
 jobs:
-build-and-test:
-docker:
-- image: cimg/python:3.10.2
-steps:
-- checkout
-- run:
-command: |
-pip install pytest
-pytest --junitxml=test-results/junit.xml TestTriangle.py
-- store_test_results:
-path: test-results
-python-circleci/README.md at main · LDomadia/python-circleci · GitHub https://github.com/LDomadia/python-circleci/blob/main/README.md
-3 of 6 12/27/2022, 15:42
+  build-and-test:
+    docker:
+      - image: cimg/python:3.10.2
+    steps:
+      - checkout
+      - run:
+           command: |
+            pip install pytest
+            pytest --junitxml=test-results/junit.xml TestTriangle.py
+      - store_test_results:
+          path: test-results
+workflows:
+  testing_triangles:
+    jobs:
+      - build-and-test
